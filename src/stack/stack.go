@@ -28,6 +28,10 @@ func (s *Stack) IsEmpty() bool {
 	return s.top == nil
 }
 
+func (s *Stack) Peek() *Element {
+	return s.top
+}
+
 func (s *Stack) insert(e *Element) {
 	e.next = s.top
 	s.top = e
