@@ -48,5 +48,8 @@ func (q *Queue) remove() *Element {
 	if q.bottom != nil {
 		q.bottom = q.bottom.prev
 	}
+	if q.bottom == nil {
+		q.top = nil
+	}
 	return previously
 }
