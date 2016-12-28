@@ -1,4 +1,4 @@
-// Package stack implements a Last In First Out (LIFO) (with a single linked list):
+// Package stack implements a Last In First Out (LIFO):
 //
 //                                    ^
 //                                    |
@@ -27,7 +27,8 @@ package stack
 
 // Element is an element in a single linked list
 type Element struct {
-	next  *Element
+	next *Element
+	// The value stored in this Element
 	Value interface{}
 }
 

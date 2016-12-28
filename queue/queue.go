@@ -1,4 +1,4 @@
-// Package queue implements a First In First Out (FIFO) (with a single linked list):
+// Package queue implements a First In First Out (FIFO):
 //
 // +-------------+
 // |             |             +-------------+
@@ -28,7 +28,8 @@ package queue
 
 // Element is an element in a single linked list
 type Element struct {
-	prev  *Element
+	prev *Element
+	// The value stored in this Element
 	Value interface{}
 }
 
