@@ -1,6 +1,4 @@
 // Package stack implements a Last In First Out (LIFO):
-//
-//
 //                      ^
 //                      |
 // +-----+           +--+--+

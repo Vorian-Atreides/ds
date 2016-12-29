@@ -1,6 +1,4 @@
 // Package queue implements a First In First Out (FIFO):
-//
-//
 // +-----+           +-----+
 // |     |           |     |
 // |  3  +---+       |  3  |
