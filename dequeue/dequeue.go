@@ -34,13 +34,13 @@ func (d *Dequeue) Back() *Element {
 func (d *Dequeue) PushBack(value interface{}) {
 	e := new(Element)
 	e.Value = value
-	d.insert(d.bottom, e)
+	d.insertBack(e)
 }
 
 func (d *Dequeue) PushFront(value interface{}) {
 	e := new(Element)
 	e.Value = value
-	d.insert(d.top, e)
+	d.insertFront(e)
 }
 
 func (d *Dequeue) PopFront() *Element {
@@ -51,17 +51,24 @@ func (d *Dequeue) PopBack() *Element {
 	return d.remove(d.bottom)
 }
 
-func (d *Dequeue) insert(older *Element, newElement *Element) {
-	if older == nil {
+func (d *Dequeue) insertFront(newElement *Element) {
+	if d.top == nil {
 		d.top = newElement
 		d.bottom = newElement
-	} else if older.prev == nil {
-		older.prev = newElement
-		newElement.next = older
+	} else {
+		d.top.prev = newElement
+		newElement.next = d.top
 		d.top = newElement
-	} else if older.next == nil {
-		older.next = newElement
-		newElement.prev = older
+	}
+}
+
+func (d *Dequeue) insertBack(newElement *Element) {
+	if d.top == nil {
+		d.top = newElement
+		d.bottom = newElement
+	} else {
+		d.bottom.next = newElement
+		newElement.prev = d.bottom
 		d.bottom = newElement
 	}
 }
@@ -72,11 +79,15 @@ func (d *Dequeue) remove(toRemove *Element) *Element {
 	}
 	if toRemove.prev == nil {
 		d.top = toRemove.next
-		d.top.prev = nil
+		if d.top != nil {
+			d.top.prev = nil
+		}
 	}
 	if toRemove.next == nil {
 		d.bottom = toRemove.prev
-		d.bottom.next = nil
+		if d.bottom != nil {
+			d.bottom.next = nil
+		}
 	}
 	return toRemove
 }

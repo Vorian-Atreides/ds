@@ -8,7 +8,7 @@ import (
 
 func TestBorderCases(t *testing.T) {
 
-	convey.Convey("With an empty queue", t, func() {
+	convey.Convey("With an empty Queue", t, func() {
 		q := New()
 
 		convey.Convey("Should be empty", func() {
@@ -39,11 +39,11 @@ func TestBorderCases(t *testing.T) {
 			convey.So(q.top, convey.ShouldEqual, q.bottom)
 		})
 	})
-} // With an empty Stack
+} // With an empty Queue
 
 func TestNormalCase(t *testing.T) {
 
-	convey.Convey("With one item (10) in the Stack", t, func() {
+	convey.Convey("With one item (10) in the Queue", t, func() {
 		q := New()
 		q.Enqueue(10)
 
@@ -99,7 +99,7 @@ func TestNormalCase(t *testing.T) {
 
 	}) // With one item (10) in the Queue
 
-	convey.Convey("With three items (1, 2, 3) in the Stack", t, func() {
+	convey.Convey("With three items (1, 2, 3) in the Queue", t, func() {
 		q := New()
 		q.Enqueue(1)
 		q.Enqueue(2)
